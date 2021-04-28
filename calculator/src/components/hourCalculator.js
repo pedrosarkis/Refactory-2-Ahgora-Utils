@@ -1,16 +1,15 @@
 import React from 'react';
-import 
-    { 
+import
+    {
         Container,
         InputHour,
         InputHourResult,
         ContainerHour,
         LabelHour
     }  from './hourCalculatorStyles';
-import { useForm } from 'react-hook-form';
 
-
-const Calculator = ({ handleTime, timeState }) => {
+const Calculator = ({ handleTime, timeState, setOperation, doCalc, result}) => {
+    console.log('timestate', timeState);
     const handleOnChange = (e) => {
         const {name, value} = e.target;
         handleTime(timeState => ({
@@ -18,31 +17,36 @@ const Calculator = ({ handleTime, timeState }) => {
             [name]: value
         }))
     }
+
+    const handleOnclick = (e) => {
+        const { id } = e.target;
+        doCalc(id);
+    }
     return (
-        <> 
-            <Container> 
+        <>
+            <Container>
                     <ContainerHour>
-                        <InputHour onChange={handleOnChange} name= 'hour1' type="text" value={timeState?.hour1}/>
+                        <InputHour onChange={handleOnChange} name= 'hour1' type="text" value={timeState?.hour1 ?? ''}/>
                         <label for="hours">Horas</label>
-                        <InputHour onChange={handleOnChange} name='minute1' value={timeState?.minute1}/>
-                        <label for="mins">Minutos</label>
-                    </ContainerHour>
-                    <ContainerHour> 
-                        <InputHour  onChange={handleOnChange} name='hour2' value={timeState?.hour2} />
-                        <label for="hours">Horas</label>
-                        <InputHour  onChange={handleOnChange} name='minute2' value={timeState?.minute2}/>
+                        <InputHour onChange={handleOnChange} name='minute1' value={timeState?.minute1 ?? ''}/>
                         <label for="mins">Minutos</label>
                     </ContainerHour>
                     <ContainerHour>
-                        <LabelHour id="sum " >Adição </LabelHour>
-                        <LabelHour id="reset" >Reset</LabelHour>
-                        <LabelHour id="decrease" class="bouton_moyen">Subtração</LabelHour>
+                        <InputHour  onChange={handleOnChange} name='hour2' value={timeState?.hour2 ?? ''} />
+                        <label for="hours">Horas</label>
+                        <InputHour  onChange={handleOnChange} name='minute2' value={timeState?.minute2 ?? ''}/>
+                        <label for="mins">Minutos</label>
+                    </ContainerHour>
+                    <ContainerHour>
+                        <LabelHour onClick={handleOnclick} id="sum">Adição </LabelHour>
+                        <LabelHour onClick={handleOnclick} id="reset">Reset</LabelHour>
+                        <LabelHour onClick={handleOnclick} id="decrease">Subtração</LabelHour>
                     </ContainerHour>
                 <hr/>
                     <ContainerHour>
-                        <InputHourResult id="resultHour" type="text" readonly maxlength="2"/>
+                        <InputHourResult id="resultHour" value={result?.hours ?? ''} type="text" readonly maxlength="2"/>
                         <label for="hours">Horas</label>
-                        <InputHourResult id="resultMinute" type="text"  readonly maxlength="2"/>
+                        <InputHourResult id="resultMinute" value={result?.minutes ?? ''} type="text"  readonly maxlength="2"/>
                         <label for="mins">Minutos</label>
                     </ContainerHour>
                     <ContainerHour>

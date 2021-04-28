@@ -26,6 +26,7 @@ const InputHourResult = styled.input`
     border: 1px #042e5d solid;
     width: 82px;
     height: 50px;
+    text-align:center;
     font-size: 30px;
     background-color: #042e5d;
     color: white;
@@ -36,7 +37,7 @@ const ContainerHour = styled.div`
     margin-left: 10px;
     font-size: 30px;
     padding: 10px;
-    
+
 `
 
 const LabelHour = styled.label`
