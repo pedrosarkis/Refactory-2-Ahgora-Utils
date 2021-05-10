@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { decrease, sum, reset } from '../helper/calculator';
+import TimelineParser from '../../components/timelineParser';
 
 
 import HourCalculator from '../../components/hourCalculator';
@@ -32,7 +33,7 @@ const IndexPage = () => {
 
     const tabChooser = {
       0: <HourCalculator handleTime={setTime} timeState={time} doCalc={doCalc} result={result}/>,
-      1: <div> oi</div>
+      4: <TimelineParser/>
   }
 
     const classes = useStyles();
@@ -53,6 +54,7 @@ const IndexPage = () => {
             <Tab label="Adicional Noturno" />
             <Tab label="Conversor" />
             <Tab label="Fator Multiplicador" />
+            <Tab label="Timeline Parser" />
           </Tabs>
         </Paper>
         {tabChooser[value]}
