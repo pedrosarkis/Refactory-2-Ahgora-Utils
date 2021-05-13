@@ -31,7 +31,7 @@ const Timeline = () => {
                 <Result title='Utiliza sindicato?' value={timeline.groupOfRules.length ? 'Sim': 'Não'}/>
                 <ContainerDays>
                 {timeline.daysInfos.map(day => (
-                    <DayInfo day={day} />
+                    <DayInfo day={day} timeline={timeline} />
                 ))}
                 </ContainerDays>
             </>

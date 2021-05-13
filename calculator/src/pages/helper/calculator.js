@@ -31,4 +31,4 @@ const extractHoursFromSeconds = seconds => Math.floor(seconds / 3600);
 
 const extractMinutesFromSeconds = seconds => Math.floor(seconds % 3600 / 60);
 
-export { sum, decrease, reset }
+export { sum, decrease, reset, extractHoursFromSeconds, extractMinutesFromSeconds}

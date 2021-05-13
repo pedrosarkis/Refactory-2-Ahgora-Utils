@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { convertDate } from '../pages/helper/utils';
 const periodTypesTranslator = {
     shift: 'Jornada',
     nightly: 'Noturno',
@@ -11,6 +12,14 @@ const periodTypesTranslator = {
     businessHour: 'Hora contratual'
 }
 
+const QuestionLabel = styled.label`
+    font-weight: bold;
+`
+
+const ResponseLabel = styled.label`
+    color: blue;
+`
+
 const PeriodWrapper = styled.div`
     border: 0px solid black;
 `
@@ -18,17 +27,25 @@ const PeriodWrapper = styled.div`
 const DailyTimeline = ({ timeline }) => {
     return (
         <PeriodWrapper>
-            <label> Inicio periodo: </label>
-            <label> {timeline.startInfo} </label>
+            <QuestionLabel> Inicio periodo: </QuestionLabel>
+            <ResponseLabel> {convertDate(timeline.startInfo, 'DD/MM/YYYY HH:MM') } </ResponseLabel>
             <br></br>
-            <label> Fim Periodo: </label>
-            <label> {timeline.endInfo} </label>
+            <QuestionLabel> Fim Periodo: </QuestionLabel>
+            <ResponseLabel> {convertDate(timeline.endInfo, 'DD/MM/YYYY HH:MM') } </ResponseLabel>
             <br></br>
-            <label> Tratamento caso trabalhado neste período: </label>
+            <QuestionLabel title='Gerará essa hora adicional caso esse período seja de batida'> Tratamento caso trabalhado neste período: </QuestionLabel>
             <label> {timeline.options?.shift?.DESC_TIPO_HORA} </label>
             <br></br>
-            <label> Tipo do período: </label>
+            <QuestionLabel> Tipo do período: </QuestionLabel>
             <label> {timeline.type.map(type => periodTypesTranslator[type]).join(', ')} </label>
+            {/* <br/> <br/> */}
+            {/* {timeline.type.includes('leave') && (
+                <>
+                <QuestionLabel> Afastamento: {timeline.options.leave?.motivo} </QuestionLabel>
+                <QuestionLabel style={{display: 'block'}}> Tratamento: {timeline.options.leave.tratamento} </QuestionLabel>
+                </>
+            )
+            } */}
         </PeriodWrapper>
     )
 }
