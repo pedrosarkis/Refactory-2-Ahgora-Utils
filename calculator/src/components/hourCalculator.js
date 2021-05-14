@@ -8,14 +8,18 @@ import
         LabelHour
     }  from './hourCalculatorStyles';
 
-const Calculator = ({ handleTime, timeState, setOperation, doCalc, result}) => {
-    console.log('timestate', timeState);
-    const handleOnChange = (e) => {
+const Calculator = ({ handleTime, timeState, setOperation, doCalc, result, setAutoSave}) => {
+       const handleOnChange = (e) => {
         const {name, value} = e.target;
         handleTime(timeState => ({
             ...timeState,
             [name]: value
         }))
+    }
+
+    const handleOnChangeAutoSave = (e) => {
+        const {checked} = e.target;
+        setAutoSave(checked);
     }
 
     const handleOnclick = (e) => {
@@ -50,9 +54,8 @@ const Calculator = ({ handleTime, timeState, setOperation, doCalc, result}) => {
                         <label for="mins">Minutos</label>
                     </ContainerHour>
                     <ContainerHour>
-                        <LabelHour id="save" class="bouton_moyen">Salvar</LabelHour>
-                        <input id="auto" type="checkbox"/>
-                        <label style={{fontSize: '20px', color: 'black'}} for="auto"class="results">Salvar Auto</label>
+                        <input  id="auto" onChange={handleOnChangeAutoSave} type="checkbox"/>
+                        <label style={{fontSize: '20px', color: 'black'}} for="auto"class="results">Salvar operação</label>
                     </ContainerHour>
             </Container>
         </>
