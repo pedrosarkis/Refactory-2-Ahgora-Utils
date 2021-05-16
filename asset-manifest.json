@@ -1,20 +1,19 @@
 {
   "files": {
-    "main.js": "/ahgorautilitarios/static/js/main.6d4b0d2a.chunk.js",
-    "main.js.map": "/ahgorautilitarios/static/js/main.6d4b0d2a.chunk.js.map",
+    "main.js": "/ahgorautilitarios/static/js/main.0166a618.chunk.js",
+    "main.js.map": "/ahgorautilitarios/static/js/main.0166a618.chunk.js.map",
     "runtime-main.js": "/ahgorautilitarios/static/js/runtime-main.78b2dd7e.js",
     "runtime-main.js.map": "/ahgorautilitarios/static/js/runtime-main.78b2dd7e.js.map",
-    "static/js/2.22ac5802.chunk.js": "/ahgorautilitarios/static/js/2.22ac5802.chunk.js",
-    "static/js/2.22ac5802.chunk.js.map": "/ahgorautilitarios/static/js/2.22ac5802.chunk.js.map",
+    "static/js/2.ed64d39a.chunk.js": "/ahgorautilitarios/static/js/2.ed64d39a.chunk.js",
+    "static/js/2.ed64d39a.chunk.js.map": "/ahgorautilitarios/static/js/2.ed64d39a.chunk.js.map",
     "static/js/3.1ca80f57.chunk.js": "/ahgorautilitarios/static/js/3.1ca80f57.chunk.js",
     "static/js/3.1ca80f57.chunk.js.map": "/ahgorautilitarios/static/js/3.1ca80f57.chunk.js.map",
     "index.html": "/ahgorautilitarios/index.html",
-    "static/js/2.22ac5802.chunk.js.LICENSE.txt": "/ahgorautilitarios/static/js/2.22ac5802.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/ahgorautilitarios/static/media/logo.6ce24c58.svg"
+    "static/js/2.ed64d39a.chunk.js.LICENSE.txt": "/ahgorautilitarios/static/js/2.ed64d39a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.78b2dd7e.js",
-    "static/js/2.22ac5802.chunk.js",
-    "static/js/main.6d4b0d2a.chunk.js"
+    "static/js/2.ed64d39a.chunk.js",
+    "static/js/main.0166a618.chunk.js"
   ]
 }
