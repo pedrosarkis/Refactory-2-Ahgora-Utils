@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Result from './resultsTimeline';
+import Result from './ResultsTimeline';
 import DayInfo from './DaysInfo';
 import Button from '@material-ui/core/Button';
 

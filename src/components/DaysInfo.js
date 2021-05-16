@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import DailyTimeline from './DailyTimeline';
-import { convertDate, getWeeklyDay } from '../pages/helper/utils';
+import { convertDate, getWeeklyDay } from '../helper/utils';
 import moment from 'moment';
 import momentDuration from 'moment-duration-format';
 import {
     extractMinutesFromSeconds,
     extractHoursFromSeconds
-} from '../pages/helper/calculator';
+} from '../helper/calculator';
+import 'moment/locale/pt-br';
+moment.locale('pt-br')
 
 
 const Container = styled.div`
@@ -23,9 +25,11 @@ const Label = styled.label`
 `
 
 const DayInfo = ({ day, timeline }) => {
-    const shiftIndex = day.jornada || false;
-    const shiftData = shiftIndex ?  timeline.shifts[shiftIndex] : null;
+    const shiftIndex = day.jornada ?? null;
+    const shiftData = timeline.shifts[shiftIndex];
     const contractualHour = shiftData?.ops.HORAS_CONTRATUAIS.join('-') || 'Não há horas previstas';
+    const punches = day.punchesInTolerance.map(punch => moment(punch.hora).format('HH:MM')).join('-');
+    debugger;
     return (
         <Container>
             <Label>Dia {convertDate(day.dia, 'DD/MM/YYYY')}</Label> <br></br>
@@ -40,7 +44,7 @@ const DayInfo = ({ day, timeline }) => {
             <label>Há afastamento neste dia? </label>
             <label> {day.events.leave.range ? 'Sim' : 'Não'} </label>
             <Label> Batidas na tolerância</Label>
-            <Label> {day.punchesInTolerance.map(punch => moment(punch.hora).format('HH:MM')).join('-')}</Label>
+            <Label> {day.punchesInTolerance.map(punch => moment(punch.hora, 'HHmm').format('HH:mm')).join('-')}</Label>
             {day.timeline.map((timeline, index) => (
                 <>
                 <br></br>

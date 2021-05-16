@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { convertDate } from '../pages/helper/utils';
+import { convertDate } from '../helper/utils';
 const periodTypesTranslator = {
     shift: 'Jornada',
     nightly: 'Noturno',
@@ -28,10 +28,10 @@ const DailyTimeline = ({ timeline }) => {
     return (
         <PeriodWrapper>
             <QuestionLabel> Inicio periodo: </QuestionLabel>
-            <ResponseLabel> {convertDate(timeline.startInfo, 'DD/MM/YYYY HH:MM') } </ResponseLabel>
+            <ResponseLabel> {convertDate(timeline.startInfo, 'DD/MM/YYYY HH:mm') } </ResponseLabel>
             <br></br>
             <QuestionLabel> Fim Periodo: </QuestionLabel>
-            <ResponseLabel> {convertDate(timeline.endInfo, 'DD/MM/YYYY HH:MM') } </ResponseLabel>
+            <ResponseLabel> {convertDate(timeline.endInfo, 'DD/MM/YYYY HH:mm') } </ResponseLabel>
             <br></br>
             <QuestionLabel title='Gerará essa hora adicional caso esse período seja de batida'> Tratamento caso trabalhado neste período: </QuestionLabel>
             <label> {timeline.options?.shift?.DESC_TIPO_HORA} </label>

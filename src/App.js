@@ -1,6 +1,4 @@
-import logo from './logo.svg';
-import Calculator from './components/hourCalculator';
-import IndexPage from './pages/calculatorPage/index';
+import IndexPage from './pages/mainPage/index';
 
 function App() {
   return (

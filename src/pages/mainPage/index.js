@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { decrease, sum, reset, calcNightlyFactor, removeNightlyFactor} from '../helper/calculator';
-import TimelineParser from '../../components/timelineParser';
+import { decrease, sum, reset, calcNightlyFactor, removeNightlyFactor} from '../../helper/calculator';
+import TimelineParser from '../../components/TimelineParser';
 import Nightly from '../../components/Nightly';
 
 
-import HourCalculator from '../../components/hourCalculator';
+import HourCalculator from '../../components/HourCalculator';
 
 const useStyles = makeStyles({
   root: {
