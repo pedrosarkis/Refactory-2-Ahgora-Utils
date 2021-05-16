@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/ahgorautilitarios/static/js/main.1d4c6100.chunk.js",
-    "main.js.map": "/ahgorautilitarios/static/js/main.1d4c6100.chunk.js.map",
+    "main.js": "/ahgorautilitarios/static/js/main.6d4b0d2a.chunk.js",
+    "main.js.map": "/ahgorautilitarios/static/js/main.6d4b0d2a.chunk.js.map",
     "runtime-main.js": "/ahgorautilitarios/static/js/runtime-main.78b2dd7e.js",
     "runtime-main.js.map": "/ahgorautilitarios/static/js/runtime-main.78b2dd7e.js.map",
     "static/js/2.22ac5802.chunk.js": "/ahgorautilitarios/static/js/2.22ac5802.chunk.js",
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.78b2dd7e.js",
     "static/js/2.22ac5802.chunk.js",
-    "static/js/main.1d4c6100.chunk.js"
+    "static/js/main.6d4b0d2a.chunk.js"
   ]
 }
