@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Result from './resultsTimeline';
 import DayInfo from './DaysInfo';
+import Button from '@material-ui/core/Button';
 
 const ContainerDays = styled.div`
     display: flex;
-
 `
 
 const Timeline = () => {
@@ -20,8 +20,8 @@ const Timeline = () => {
         <>
         {Object.keys(timeline).length == 0 && (
             <>
-            <textarea onChange={handleOnChange} rows='20' cols='150' placeholder='Cole o Json da timeline aqui'> </textarea>
-            <button>Parse Timeline</button>
+            <textarea onChange={handleOnChange} rows='20' cols='150' placeholder='Cole o Json da timeline aqui'/>
+            <Button style={{display: 'block'}} variant="contained" color="primary">Parse Timeline</Button>
             </>
         )}
         {Object.keys(timeline).length != 0 && (

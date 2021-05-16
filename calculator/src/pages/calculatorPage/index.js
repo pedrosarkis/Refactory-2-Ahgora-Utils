@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { decrease, sum, reset } from '../helper/calculator';
+import { decrease, sum, reset, calcNightlyFactor, removeNightlyFactor} from '../helper/calculator';
 import TimelineParser from '../../components/timelineParser';
 import Nightly from '../../components/Nightly';
 
@@ -23,8 +23,7 @@ const IndexPage = () => {
   const [result, setResult] = useState({});
   const [autoSave, setAutoSave] = useState(false);
   const [nightlyTime, setNightlyTime] = useState({});
-
-
+  const [resultNightly, setResultNightly] = useState({}); 
 
   const chooseMethod = (operation) => ({
     [operation === 'sum']: sum(time),
@@ -45,9 +44,19 @@ const IndexPage = () => {
     setResult(resultOperation);
   }
 
+  const calcNightly = () => {
+      const nightlyResult = calcNightlyFactor(nightlyTime);
+      setResultNightly(nightlyResult);
+  }
+
+  const calcRemoveNightlyFactor = () => {
+	  const resultRemoval = removeNightlyFactor(nightlyTime);
+	  setResultNightly(resultRemoval);
+  }
+
   const tabChooser = {
     0: <HourCalculator handleTime={setTime} timeState={time} doCalc={doCalc} result={result} setAutoSave={setAutoSave} />,
-    1: <Nightly nightlyTime={nightlyTime} setTime={setNightlyTime} />,
+    1: <Nightly nightlyTime={nightlyTime} setTime={setNightlyTime} result={resultNightly} calc={calcNightly} remove={calcRemoveNightlyFactor}/>,
     4: <TimelineParser />
   }
 

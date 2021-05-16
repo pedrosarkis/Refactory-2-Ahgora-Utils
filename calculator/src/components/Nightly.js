@@ -3,14 +3,6 @@ import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-      },
-    },
-  }));
-
 const Container = styled.div`
     display: flex;
     align-items: center;
@@ -48,7 +40,7 @@ const Input = styled.input`
     border-radius: 10px;
 `
 
-const NightlyFactor = ({nightlyTime, setTime}) => {
+const NightlyFactor = ({nightlyTime, setTime, calc, result, remove}) => {
     const handleOnChangeValue = ({target: {value, name}}) => {
         if(isNaN(value)) return;
 
@@ -57,6 +49,7 @@ const NightlyFactor = ({nightlyTime, setTime}) => {
             [name]: value
         }))
     }
+    
     return (
         <>
         <Container>
@@ -66,13 +59,20 @@ const NightlyFactor = ({nightlyTime, setTime}) => {
             <Label> Minutos</Label>
             <Input name='minutes' value={nightlyTime?.minutes || ''} onChange={handleOnChangeValue} />
         </ContainerRow>
-            <TextAreaNoResize readOnly cols='100' rows='10'> </TextAreaNoResize>
+            <TextAreaNoResize
+                 readOnly 
+                 cols='100'
+                 rows='10'
+                 value={
+                     Object.keys(result).length ? `O resultado da operação é ${result.hours.toString().padStart(2, 0)}:${result.minutes.toString().padStart(2, 0)}` : ''
+                 }
+            /> 
             <ContainerRow>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" onClick={calc}>
                     Adicional Noturno
                 </Button>
-                <Button variant="contained" color="secondary">
-                    Período Trabalhado
+                <Button variant="contained" color="secondary" onClick={remove}>
+                    Remover adicional noturno
                 </Button>
             </ContainerRow>
         </Container>
