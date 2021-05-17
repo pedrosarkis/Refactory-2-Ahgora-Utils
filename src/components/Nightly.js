@@ -30,7 +30,10 @@ const TextAreaNoResize = styled.textarea`
 const Label = styled.label`
     font-size: 25px;
     font-weight: bold;
-    margin-right: 5px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 const Input = styled.input`
@@ -38,6 +41,8 @@ const Input = styled.input`
     text-align: center;
     height: 30px;
     border-radius: 10px;
+    margin-right: 20px;
+    border: 1px solid #919191
 `
 
 const NightlyFactor = ({nightlyTime, setTime, calc, result, remove}) => {
@@ -49,7 +54,7 @@ const NightlyFactor = ({nightlyTime, setTime, calc, result, remove}) => {
             [name]: value
         }))
     }
-    
+
     return (
         <>
         <Container>
@@ -60,15 +65,15 @@ const NightlyFactor = ({nightlyTime, setTime, calc, result, remove}) => {
             <Input name='minutes' value={nightlyTime?.minutes || ''} onChange={handleOnChangeValue} />
         </ContainerRow>
             <TextAreaNoResize
-                 readOnly 
+                 readOnly
                  cols='100'
                  rows='10'
                  value={
                      Object.keys(result).length ? `O resultado da operação é ${result.hours.toString().padStart(2, 0)}:${result.minutes.toString().padStart(2, 0)}` : ''
                  }
-            /> 
+            />
             <ContainerRow>
-                <Button variant="contained" color="primary" onClick={calc}>
+                <Button style={{marginRight: 20}} variant="contained" color="primary" onClick={calc}>
                     Adicional Noturno
                 </Button>
                 <Button variant="contained" color="secondary" onClick={remove}>
