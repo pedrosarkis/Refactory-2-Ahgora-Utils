@@ -4,6 +4,23 @@ import Result from './ResultsTimeline';
 import DayInfo from './DaysInfo';
 import Button from '@material-ui/core/Button';
 
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+`
+
+const ContainerJson = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+`
+
 const ContainerDays = styled.div`
     display: flex;
 `
@@ -17,12 +34,12 @@ const Timeline = () => {
     }
 
     return (
-        <>
+        <Container>
         {Object.keys(timeline).length == 0 && (
-            <>
+            <ContainerJson>
             <textarea onChange={handleOnChange} rows='20' cols='150' placeholder='Cole o Json da timeline aqui'/>
-            <Button style={{display: 'block'}} variant="contained" color="primary">Parse Timeline</Button>
-            </>
+            <Button style={{display: 'block', marginTop: 25, width: '40vw'}} variant="contained" color="primary">Parse Timeline</Button>
+            </ContainerJson>
         )}
         {Object.keys(timeline).length != 0 && (
             <>
@@ -36,7 +53,7 @@ const Timeline = () => {
                 </ContainerDays>
             </>
         )}
-        </>
+        </Container>
 
     )
 }

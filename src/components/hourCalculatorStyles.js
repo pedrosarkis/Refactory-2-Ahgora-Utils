@@ -12,6 +12,7 @@ const Container = styled.div`
     font-family: 'Lucida Sans Unicode','Lucida Grande',sans-serif;
     font-size: 13px;
     color: #757575;
+    margin-top: 30px;
 `
 
 const InputHour = styled.input`
@@ -19,7 +20,7 @@ const InputHour = styled.input`
     border: 1px #042e5d solid;
     width: 82px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
     font-size: 30px;
 `
 const InputHourResult = styled.input`
@@ -30,6 +31,7 @@ const InputHourResult = styled.input`
     font-size: 30px;
     background-color: #042e5d;
     color: white;
+    margin: 10px;
 `
 
 const ContainerHour = styled.div`
@@ -37,6 +39,9 @@ const ContainerHour = styled.div`
     margin-left: 10px;
     font-size: 30px;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 `
 
