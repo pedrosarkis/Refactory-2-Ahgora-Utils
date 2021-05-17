@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   function getModalStyle() {
     const top = 50 + rand();
     const left = 50 + rand();
-  
+
     return {
       top: `${top}%`,
       left: `${left}%`,
@@ -72,7 +72,7 @@ const DailyTimeline = ({ timeline }) => {
       const handleOpen = () => {
         setOpen(true);
       };
-    
+
     return (
         <PeriodWrapper>
             <QuestionLabel> Inicio periodo: </QuestionLabel>
@@ -93,29 +93,29 @@ const DailyTimeline = ({ timeline }) => {
                         onClose={handleClose}
                         aria-labelledby="simple-modal-title"
                         aria-describedby="simple-modal-description"
-                    > 
-                        <div style={modalStyle} className={classes.paper}> 
+                    >
+                        <div style={modalStyle} className={classes.paper}>
                             <BlockLabel>Motivo Afastamento: {`${timeline.options.leave.motivo}`}</BlockLabel>
                             <BlockLabel>Tratamento: {`${timeline.options.leave.tratamento}`}</BlockLabel>
                             <BlockLabel>Tratamento Noturno: {`${timeline.options.leave.tratamento_noturno}`}</BlockLabel>
                             <BlockLabel>Não abona: {`${timeline.options.leave.nao_abonar_falta}`}</BlockLabel>
                             <BlockLabel>Abona apenas ausências: {`${timeline.options.leave.apenas_abonar_ausencia}`}</BlockLabel>
                             <BlockLabel>Força o tratamento da jornada/escala: {`${timeline.options.leave.force_shift_limits}`}</BlockLabel>
-                            <BlockLabel>Possui limites: {`${timeline.options.leave.LIMITES_HORAS_ADICIONAIS.length > 0}`}</BlockLabel>
-                            {timeline.options.leave.LIMITES_HORAS_ADICIONAIS.length > 0 && (
+                            <BlockLabel>Possui limites: {`${timeline.options.leave?.LIMITES_HORAS_ADICIONAIS?.length > 0 || 'Não'}`}</BlockLabel>
+                            {timeline.options.leave?.LIMITES_HORAS_ADICIONAIS?.length > 0 && (
                                 <>
                                      <BlockLabel>Origem: {`${timeline.options.leave.LIMITES_HORAS_ADICIONAIS[0].HORA_ADICIONAL_ORIGEM}`}</BlockLabel>
                                      <BlockLabel>Quantidade: {`${timeline.options.leave.LIMITES_HORAS_ADICIONAIS[0].TM_QUANTIDADE}`}</BlockLabel>
                                      <BlockLabel>Destino: {`${timeline.options.leave.LIMITES_HORAS_ADICIONAIS[0].HORA_ADICIONAL_DESTINO}`}</BlockLabel>
                                 </>
-                            ) 
+                            )
                             }
                         </div>
                     </Modal>
                     <Button variant="outlined" color="primary" onClick={handleOpen}>Ver dados Afastamento</Button>
                 </>
             )}
-            
+
         </PeriodWrapper>
     )
 }

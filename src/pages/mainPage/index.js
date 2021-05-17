@@ -23,7 +23,7 @@ const IndexPage = () => {
   const [result, setResult] = useState({});
   const [autoSave, setAutoSave] = useState(false);
   const [nightlyTime, setNightlyTime] = useState({});
-  const [resultNightly, setResultNightly] = useState({}); 
+  const [resultNightly, setResultNightly] = useState({});
 
   const chooseMethod = (operation) => ({
     [operation === 'sum']: sum(time),
