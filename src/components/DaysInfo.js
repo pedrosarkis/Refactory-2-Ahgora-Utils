@@ -35,6 +35,12 @@ const CardHeader = styled.div`
         align-items: center;
         border-radius: 30px;
         padding: 3px;
+        #weeklyday {
+            min-width: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         label {
             margin: 5px;
             padding: 5px;
@@ -115,7 +121,7 @@ const DayInfo = ({ day, timeline }) => {
             <CardHeader>
                 <div id="date">
                     <label>{convertDate(day.dia, "DD/MM/YYYY")}</label>
-                    <label>{getWeeklyDay(day.dia)}</label>
+                    <label id="weeklyday">{getWeeklyDay(day.dia)}</label>
                 </div>
             </CardHeader>
 
