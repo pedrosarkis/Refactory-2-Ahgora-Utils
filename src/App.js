@@ -1,9 +1,12 @@
-import IndexPage from './pages/mainPage/index';
-
+import IndexPage from "./pages/mainPage/index";
+import GlobalStyle from "./styles/global";
 function App() {
-  return (
-    <IndexPage/>
-  );
+    return (
+        <>
+            <IndexPage />
+            <GlobalStyle />
+        </>
+    );
 }
 
 export default App;
