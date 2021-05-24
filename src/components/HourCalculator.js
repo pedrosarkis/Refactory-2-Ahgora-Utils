@@ -55,7 +55,7 @@ const Calculator = ({ handleTime, timeState, setOperation, doCalc, result, setAu
                     </ContainerHour>
                     <ContainerHour>
                         <input  id="auto" onChange={handleOnChangeAutoSave} type="checkbox"/>
-                        <label style={{fontSize: '20px', color: 'black'}} for="auto"class="results">Salvar operação</label>
+                        <label style={{fontSize: '20px', color: 'black', marginLeft: 10}} for="auto"class="results">Salvar operação</label>
                     </ContainerHour>
             </Container>
         </>

@@ -127,7 +127,7 @@ const DailyTimeline = ({ timeline }) => {
                             )}
                         </div>
                     </Modal>
-                    <Button variant="outlined" color="primary" onClick={handleOpen}>
+                    <Button style={{marginTop: 20}} variant="outlined" color="primary" onClick={handleOpen}>
                         Ver dados Afastamento
                     </Button>
                 </>

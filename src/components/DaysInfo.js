@@ -96,7 +96,7 @@ const CardInfo = styled.div`
 const CardPeriods = styled.div`
     padding-top: 30px;
     background: white;
-    height: 90%;
+    height: 94%;
     border-bottom: 1px solid lightgray;
     border-radius: 0px 0px 30px 30px;
     display: flex;
@@ -108,6 +108,13 @@ const CardPeriods = styled.div`
         flex-direction: column;
         align-items: center;
         min-height: 60px;
+        margin-bottom: 20px;
+        label {
+            margin-bottom: 5px;
+        }
+        label + label {
+            text-align: center;
+        }
     }
 `;
 
@@ -148,15 +155,15 @@ const DayInfo = ({ day, timeline }) => {
                 <div id="punchesInTolerance">
                     <label>Batidas na tolerância</label>
                     <label> {day.punchesInTolerance.map((punch) => moment(punch.hora, "HHmm").format("HH:mm")).join(" - ")}</label>
+
                 </div>
 
                 {day.timeline.map((timeline, index) => (
                     <div>
-                        <hr />
+                        <hr/>
                         <br />
                         <h4>Período {index + 1}</h4>
                         <DailyTimeline timeline={timeline} />
-
                         <br />
                     </div>
                 ))}

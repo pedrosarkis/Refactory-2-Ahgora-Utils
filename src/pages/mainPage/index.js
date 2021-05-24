@@ -4,10 +4,15 @@ import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { decrease, sum, reset, calcNightlyFactor, removeNightlyFactor } from "../../helper/calculator";
+
+
+//components
 import TimelineParser from "../../components/TimelineParser";
 import Nightly from "../../components/Nightly";
-
 import HourCalculator from "../../components/HourCalculator";
+
+//pages
+import HoursConverter from '../../pages/hoursConverter'
 
 const useStyles = makeStyles({
     root: {
@@ -56,6 +61,7 @@ const IndexPage = () => {
     const tabChooser = {
         0: <HourCalculator handleTime={setTime} timeState={time} doCalc={doCalc} result={result} setAutoSave={setAutoSave} />,
         1: <Nightly nightlyTime={nightlyTime} setTime={setNightlyTime} result={resultNightly} calc={calcNightly} remove={calcRemoveNightlyFactor} />,
+        2: <HoursConverter/>,
         4: <TimelineParser />,
     };
 
@@ -65,7 +71,7 @@ const IndexPage = () => {
     };
     return (
         <>
-            <Paper className={classes.root} style={{ position: "fixed", width: "100vw" }}>
+            <Paper className={classes.root} style={{ position: "fixed", width: "100vw", zIndex: 1 }}>
                 <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" centered>
                     <Tab label="Calculadora" />
                     <Tab label="Adicional Noturno" />

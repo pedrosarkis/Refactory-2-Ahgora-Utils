@@ -14,10 +14,12 @@ const ContainerJson = styled.div`
 `;
 
 const ContainerTimeLine = styled.div`
+
     #header {
         display: flex;
         justify-content: space-around;
         position: fixed;
+        z-index: 1;
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
