@@ -16,16 +16,16 @@ const HoursConverter = () => {
     }
 
     const converterToCentesimal = (hours) => {
-        if(hours === "") return false
+        if(!hours) return false
         hours = removeUnderline(hours).split(':')
         hours[1] = Math.floor(hours[1] * 1.67);
         return `${hours[0]}.${hours[1]}`
     }
 
     const converterToSexagesimal = (hours) => {
-        if(hours === "") return false
+        if(!hours) return false
         hours = removeUnderline(hours).split('.')
-        hours[1] = Math.floor(hours[1] / 1.67);
+        hours[1] = Math.round(hours[1] / 1.67);
         if(+hours[1] < 9) hours[1] = `0${hours[1]}`
         return `${hours[0]}:${hours[1]}`
     }
