@@ -2,6 +2,17 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1 {
+        margin-top: 30px;
+        color: #656565;
+    }
+`
+
+const Modal = styled.div`
     text-align: center;
     height: 398px;
     width: 600px;
@@ -29,7 +40,7 @@ const InputHourResult = styled.input`
     height: 50px;
     text-align:center;
     font-size: 30px;
-    background-color: #042e5d;
+    background-color: #283593;
     color: white;
     margin: 10px;
 `
@@ -50,11 +61,10 @@ const LabelHour = styled.label`
     letter-spacing: 3pt;
     font-size: 15px;
     padding: 10px;
-    background: rgb(7, 86, 151);
     text-shadow: 0 1px 0 rgba(255,255,255,0.2);
     border: 1px #fcfcfc solid;
     border-radius: 10px;
     margin-left: 15px;
     cursor: pointer;
 `
-export {Container, InputHour, InputHourResult, ContainerHour, LabelHour}
+export {Container, InputHour, InputHourResult, ContainerHour, LabelHour, Modal}

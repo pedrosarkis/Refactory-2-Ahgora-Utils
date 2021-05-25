@@ -12,6 +12,11 @@ const Container = styled.div`
     font-family: 'Lucida Sans Unicode','Lucida Grande',sans-serif;
     font-size: 13px;
     color: #757575;
+
+    h1 {
+        margin-top: 30px;
+        font-size: 40px;
+    }
 `
 
 const ContainerRow = styled.div`
@@ -19,6 +24,8 @@ const ContainerRow = styled.div`
     flex-direction: row;
     margin-bottom: 20px;
     margin-top: 25px;
+
+
 
 `
 
@@ -39,7 +46,6 @@ const Input = styled.input`
     max-width: 70px;
     text-align: center;
     height: 30px;
-    border-radius: 10px;
     margin-right: 20px;
     border: 1px solid #919191
 `
@@ -57,6 +63,7 @@ const NightlyFactor = ({nightlyTime, setTime, calc, result, remove}) => {
     return (
         <>
         <Container>
+            <h1>Calculadora de adicional noturno</h1>
             <ContainerRow>
             <Label> Horas</Label>
             <Input  name='hours' value={nightlyTime?.hours || ''} onChange={handleOnChangeValue}/>

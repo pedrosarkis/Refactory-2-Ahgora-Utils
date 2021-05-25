@@ -2,11 +2,13 @@ import React from 'react';
 import
     {
         Container,
+        Modal,
         InputHour,
         InputHourResult,
         ContainerHour,
         LabelHour
     }  from './hourCalculatorStyles';
+    import Button from '@material-ui/core/Button';
 
 const Calculator = ({ handleTime, timeState, setOperation, doCalc, result, setAutoSave}) => {
        const handleOnChange = (e) => {
@@ -22,13 +24,13 @@ const Calculator = ({ handleTime, timeState, setOperation, doCalc, result, setAu
         setAutoSave(checked);
     }
 
-    const handleOnclick = (e) => {
-        const { id } = e.target;
-        doCalc(id);
+    const handleOnclick = (event) => {
+        doCalc(event);
     }
     return (
-        <>
-            <Container>
+        <Container>
+            <h1>Calculadora de horas</h1>
+            <Modal>
                     <ContainerHour>
                         <InputHour onChange={handleOnChange} name= 'hour1' type="text" value={timeState?.hour1 ?? ''}/>
                         <label for="hours">Horas</label>
@@ -42,9 +44,9 @@ const Calculator = ({ handleTime, timeState, setOperation, doCalc, result, setAu
                         <label for="mins">Minutos</label>
                     </ContainerHour>
                     <ContainerHour>
-                        <LabelHour onClick={handleOnclick} id="sum">Adição </LabelHour>
-                        <LabelHour onClick={handleOnclick} id="reset">Reset</LabelHour>
-                        <LabelHour onClick={handleOnclick} id="decrease">Subtração</LabelHour>
+                        <Button onClick={() => handleOnclick('sum')} style={{marginRight: 30}} variant="contained" color="primary" >Adição</Button>
+                        <Button onClick={() => handleOnclick('reset')} style={{marginRight: 30}}  variant="contained" color="secondary" >Reset</Button>
+                        <Button onClick={() => handleOnclick('decrease')} style={{marginRight: 40}} variant="contained" color="primary" >Subtração</Button>
                     </ContainerHour>
                 <hr/>
                     <ContainerHour>
@@ -57,8 +59,8 @@ const Calculator = ({ handleTime, timeState, setOperation, doCalc, result, setAu
                         <input  id="auto" onChange={handleOnChangeAutoSave} type="checkbox"/>
                         <label style={{fontSize: '20px', color: 'black', marginLeft: 10}} for="auto"class="results">Salvar operação</label>
                     </ContainerHour>
-            </Container>
-        </>
+            </Modal>
+        </Container>
     )
 }
 
