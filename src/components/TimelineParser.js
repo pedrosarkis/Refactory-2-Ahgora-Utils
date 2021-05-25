@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Result from "./ResultsTimeline";
 import DayInfo from "./DaysInfo";
 import Button from "@material-ui/core/Button";
 
@@ -61,7 +60,7 @@ const Timeline = () => {
 
     return (
         <>
-            {Object.keys(timeline).length == 0 && (
+            {Object.keys(timeline).length === 0 && (
                 <ContainerJson>
                     <h1 id='title'>Cole o json da timeline no campo abaixo para gerar a leitura.</h1>
                     <textarea onChange={handleOnChange} style={{marginLeft:130, padding: '20px 20px', fontSize: 20}} rows="20" cols="120" placeholder="Cole o Json da timeline aqui" />
@@ -71,7 +70,7 @@ const Timeline = () => {
                 </ContainerJson>
             )}
 
-            {Object.keys(timeline).length != 0 && (
+            {Object.keys(timeline).length !== 0 && (
                 <ContainerTimeLine>
                     <div id="header">
                         <h1>

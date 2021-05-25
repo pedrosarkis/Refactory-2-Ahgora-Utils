@@ -3,8 +3,6 @@ import styled from "styled-components";
 import DailyTimeline from "./DailyTimeline";
 import { convertDate, getWeeklyDay } from "../helper/utils";
 import moment from "moment";
-import momentDuration from "moment-duration-format";
-import { extractMinutesFromSeconds, extractHoursFromSeconds } from "../helper/calculator";
 import "moment/locale/pt-br";
 moment.locale("pt-br");
 
