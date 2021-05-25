@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #454545;
+    color: #676767;
     margin-top: 30px;
     flex-direction: column;
 
@@ -16,6 +16,7 @@ export const Container = styled.div`
             display: flex;
             align-items: center;
             justify-content: space-between;
+
 
             input{
                 height: 40px;
