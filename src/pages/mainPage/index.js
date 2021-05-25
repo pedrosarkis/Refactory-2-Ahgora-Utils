@@ -13,6 +13,7 @@ import HourCalculator from "../../components/HourCalculator";
 
 //pages
 import HoursConverter from '../../pages/hoursConverter'
+import MultiplyingFactor from '../../pages/multiplyingFactor'
 
 const useStyles = makeStyles({
     root: {
@@ -62,6 +63,7 @@ const IndexPage = () => {
         0: <HourCalculator handleTime={setTime} timeState={time} doCalc={doCalc} result={result} setAutoSave={setAutoSave} />,
         1: <Nightly nightlyTime={nightlyTime} setTime={setNightlyTime} result={resultNightly} calc={calcNightly} remove={calcRemoveNightlyFactor} />,
         2: <HoursConverter/>,
+        3: <MultiplyingFactor/>,
         4: <TimelineParser />,
     };
 
