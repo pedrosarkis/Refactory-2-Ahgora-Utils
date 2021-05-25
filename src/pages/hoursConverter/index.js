@@ -41,21 +41,20 @@ const HoursConverter = () => {
             <div>
                 <div>
                     <div>
-                    <h2>Valor em Sexagesimal </h2>
-                    <InputMask ref={sexagesimalRef} mask="99:99"></InputMask>
+                        <h2>Valor em Sexagesimal </h2>
+                        <InputMask ref={sexagesimalRef} mask="99:99"></InputMask>
                     </div>
                     <div>
-                    <h3>{sexagesimal}</h3>
+                        <h3>{sexagesimal}</h3>
                     </div>
-
                 </div>
                 <div>
                     <div>
-                    <h2>Valor em Cetesimal </h2>
-                    <InputMask ref={centesimalRef}  mask="99.99" ></InputMask>
+                        <h2>Valor em Cetesimal </h2>
+                        <InputMask ref={centesimalRef}  mask="99.99" ></InputMask>
                     </div>
                     <div>
-                    <h3>{centesimal}</h3>
+                        <h3>{centesimal}</h3>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,13 @@ const ContainerJson = styled.div`
     align-items: center;
     width: 90vw;
     margin-top: 30px;
+
+
+    #title{
+        color: #656565;
+        margin-bottom: 40px;
+        margin-top: 10px;
+    }
 `;
 
 const ContainerTimeLine = styled.div`
@@ -56,7 +63,8 @@ const Timeline = () => {
         <>
             {Object.keys(timeline).length == 0 && (
                 <ContainerJson>
-                    <textarea onChange={handleOnChange} rows="20" cols="150" placeholder="Cole o Json da timeline aqui" />
+                    <h1 id='title'>Cole o json da timeline no campo abaixo para gerar a leitura.</h1>
+                    <textarea onChange={handleOnChange} style={{marginLeft:130, padding: '20px 20px', fontSize: 20}} rows="20" cols="120" placeholder="Cole o Json da timeline aqui" />
                     <Button style={{ display: "block", marginTop: 25, width: "40vw" }} variant="contained" color="primary">
                         Parse Timeline
                     </Button>

@@ -9,7 +9,7 @@ export const Container = styled.div`
     flex-direction: column;
 
     div {
-        margin: 20px 0px;
+        margin-top: 30px;
 
         div {
             margin-bottom: 30px;
@@ -25,5 +25,11 @@ export const Container = styled.div`
                 text-align: center;
             }
         }
+    }
+
+    #result{
+        padding: 20px;
+        margin-bottom: 10px;
+        height: 100px;
     }
 `
