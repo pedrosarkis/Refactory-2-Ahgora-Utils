@@ -12,7 +12,7 @@ export const Container = styled.div`
         margin-top: 30px;
 
         div {
-            margin-bottom: 30px;
+            margin-bottom: 0px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -28,8 +28,8 @@ export const Container = styled.div`
     }
 
     #result{
-        padding: 20px;
-        margin-bottom: 10px;
-        height: 100px;
+        padding: 5px;
+        margin-bottom: 20px;
+        height: 50px;
     }
 `
