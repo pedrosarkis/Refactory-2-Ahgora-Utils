@@ -34,7 +34,7 @@ const HoursConverter = () => {
                     <InputMask mask="99:99" ></InputMask>
                 </div>
                 <div>
-                    <h3>Valor em Sexagesimal </h3>
+                    <h3>Valor em Cetesimal </h3>
                     <InputMask  mask="99.99" ></InputMask>
                 </div>
             </div>
