@@ -19,11 +19,12 @@ const MultiplyingFactor = () => {
 
     const hoursToSeconds = (hours) => {
         hours = hours.split(':')
-        let seconds = (+hours[0]*3600)+(+hours[1])
+        let seconds = (+hours[0]*3600)+(+hours[1]*60)
         return seconds
     }
 
     const secondsToHours = (totalSeconds) => { //full net
+        console.log(totalSeconds)
         let hours = Math.floor(totalSeconds / 3600);
         totalSeconds %= 3600;
         let minutes = Math.floor(totalSeconds / 60);
@@ -50,7 +51,7 @@ const MultiplyingFactor = () => {
 
     return (
         <Container>
-            <h1>Conversor de Horas</h1>
+            <h1>Fator Multiplicador</h1>
             <div>
                 <div>
                     <h3>Quantidade de Banco</h3>
