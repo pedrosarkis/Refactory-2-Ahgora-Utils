@@ -39,7 +39,7 @@ const periodTypesTranslator = {
     tolerance: "Tolerância",
     intinere: "Intinere",
     onCalls: "SobreAviso",
-    businessHour: "Hora contratual",
+    businesshour: "Hora contratual",
 };
 
 const BlockLabel = styled.label`
