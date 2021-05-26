@@ -10,29 +10,23 @@ const HoursConverter = () => {
     const sexagesimalRef = useRef()
     const centesimalRef = useRef()
 
-    const removeUnderline = (string) => {
-        string = string.split('').map(elem => elem === "_" ? '0' : elem).join('')
-        return string
+    const removeUnderline = string => string.split('').map(elem => elem === "_" ? '0' : elem).join('');
+
+    const converterToCentesimal = (time) => {
+        if (!time) return false;
+        const [hours, minutes] = removeUnderline(time).split(':');
+        return `${hours}.${Math.floor(minutes * 1.67)}`;
     }
 
-    const converterToCentesimal = (hours) => {
-        if(!hours) return false
-        hours = removeUnderline(hours).split(':')
-        hours[1] = Math.floor(hours[1] * 1.67);
-        return `${hours[0]}.${hours[1]}`
-    }
-
-    const converterToSexagesimal = (hours) => {
-        if(!hours) return false
-        hours = removeUnderline(hours).split('.')
-        hours[1] = Math.round(hours[1] / 1.67);
-        if(+hours[1] < 9) hours[1] = `0${hours[1]}`
-        return `${hours[0]}:${hours[1]}`
+    const converterToSexagesimal = (time) => {
+        if (!time) return false;
+        let [hours, minutes] = removeUnderline(time).split('.');
+        return `${hours}:${Math.round(minutes / 1.67).toString().padStart(2, 0)}`;
     }
 
     const handleConverter = () => {
-        setSexagesimal(converterToCentesimal(sexagesimalRef.current.value))
-        setCentesimal(converterToSexagesimal(centesimalRef.current.value))
+        setSexagesimal(converterToCentesimal(sexagesimalRef.current.value));
+        setCentesimal(converterToSexagesimal(centesimalRef.current.value));
     }
 
     return (
