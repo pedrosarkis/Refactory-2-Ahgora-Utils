@@ -26,7 +26,8 @@
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
-        "test": "jest"
+        "test": "jest",
+        "docker_build": "docker build -t sample:dev ."
     },
     "eslintConfig": {
         "extends": [
