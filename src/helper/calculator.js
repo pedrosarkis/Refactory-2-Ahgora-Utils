@@ -73,7 +73,7 @@ const hourToSeconds = hour => hour * 3600;
 
 const minutesToSeconds = minutes => minutes * 60;
 
-const removeUnderline = string => string.split('').map(elem => elem === "_" ? '0' : elem).join('');
+const removeUnderline = string => string.replace('_', 0);
 
 const extractHoursFromSeconds = seconds => Math.floor(seconds / 3600);
 
@@ -91,5 +91,6 @@ export {
     removeNightlyFactor,
     converterToCentesimal,
     converterToSexagesimal,
-    secondsToHoursAndMinutes
+    secondsToHoursAndMinutes,
+    removeUnderline
 }
