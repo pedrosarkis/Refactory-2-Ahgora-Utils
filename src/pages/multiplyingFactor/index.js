@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Container } from "./style.js";
 import Button from "@material-ui/core/Button";
 import InputMask from "react-input-mask";
+import {secondsToHoursAndMinutes} from '../../helper/calculator';
 
 const MultiplyingFactor = () => {
     const [bancoDeHoras, setBancoDeHoras] = useState();
@@ -11,44 +12,22 @@ const MultiplyingFactor = () => {
     const hoursRef = useRef();
 
     const removeUnderline = (string) => {
-        if (string === undefined) return false;
-        string = string
-            .split("")
-            .map((elem) => (elem === "_" ? "0" : elem))
+        return string
+            ?.split("")
+            .map(elem => elem === "_" ? "0" : elem)
             .join("");
-        return string;
     };
 
-    const hoursToSeconds = (hours) => {
-        hours = hours.split(":");
-        let seconds = +hours[0] * 3600 + +hours[1] * 60;
-        return seconds;
-    };
+    const hoursToSeconds = ([hour, minutes]) => parseInt(hour) * 3600 + parseInt(minutes) * 60;
 
-    const secondsToHours = (totalSeconds) => {
-        //full net
-        console.log(totalSeconds);
-        let hours = Math.floor(totalSeconds / 3600);
-        totalSeconds %= 3600;
-        let minutes = Math.floor(totalSeconds / 60);
-
-        if (hours < 9) hours = `0${hours}`;
-        if (minutes < 9) minutes = `0${minutes}`;
-
-        return `${hours}:${minutes}`;
-    };
-
-    const factorMinutes = (seconds) => {
-        const factor = removeUnderline(fator); //realiza o calculo mesmo se faltar algum caractere
-        return seconds * +factor;
-    };
+    const factorMinutes = seconds => parseInt(removeUnderline(fator)) * seconds;
 
     const handleClick = () => {
         if (!bancoDeHoras || !fator) return false;
-        const seconds = hoursToSeconds(removeUnderline(bancoDeHoras));
-        const factor = factorMinutes(seconds);
-        const hours = secondsToHours(factor);
-        setResult(hours);
+
+        const seconds = hoursToSeconds(removeUnderline(bancoDeHoras).split(':'));
+        const hoursAndMinutes = secondsToHoursAndMinutes(factorMinutes(seconds));
+        setResult(hoursAndMinutes);
     };
 
     return (

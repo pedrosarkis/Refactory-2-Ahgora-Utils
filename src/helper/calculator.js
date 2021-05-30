@@ -52,14 +52,44 @@ const removeNightlyFactor = ({hours, minutes}) => {
     }
 }
 
+const converterToCentesimal = (time) => {
+    if (!time) return false;
+    const [hours, minutes] = removeUnderline(time).split(':');
+    return `${hours}.${Math.floor(minutes * 1.67)}`;
+}
+
+const converterToSexagesimal = (time) => {
+    if (!time) return false;
+    let [hours, minutes] = removeUnderline(time).split('.');
+    return `${hours}:${Math.round(minutes / 1.67).toString().padStart(2, 0)}`;
+}
+
+const secondsToHoursAndMinutes = (totalSeconds) => {
+    return `${extractHoursFromSeconds(totalSeconds).toString().padStart(2, 0)}:${extractMinutesFromSeconds(totalSeconds).toString().padStart(2,0)}`;
+};
+
+
 const hourToSeconds = hour => hour * 3600;
 
 const minutesToSeconds = minutes => minutes * 60;
+
+const removeUnderline = string => string.split('').map(elem => elem === "_" ? '0' : elem).join('');
 
 const extractHoursFromSeconds = seconds => Math.floor(seconds / 3600);
 
 const extractMinutesFromSeconds = seconds => Math.floor(seconds % 3600 / 60);
 
-const getNightlyFactor = () => 8/7; 
+const getNightlyFactor = () => 8/7;
 
-export { sum, decrease, reset, extractHoursFromSeconds, extractMinutesFromSeconds, calcNightlyFactor, removeNightlyFactor}
+export {
+    sum,
+    decrease,
+    reset,
+    extractHoursFromSeconds,
+    extractMinutesFromSeconds,
+    calcNightlyFactor,
+    removeNightlyFactor,
+    converterToCentesimal,
+    converterToSexagesimal,
+    secondsToHoursAndMinutes
+}

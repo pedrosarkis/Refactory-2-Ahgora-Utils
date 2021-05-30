@@ -4,8 +4,8 @@ moment.locale("pt-br");
 const convertDate = (date, format) => moment(date).format(format);
 
 const getWeeklyDay = (date) => {
-    const WeeklyDay = moment(date).format("dddd");
-    return `${WeeklyDay.slice(0, 1).toLocaleUpperCase()}${WeeklyDay.slice(1, WeeklyDay.length)}`;
+    const weeklyDay = moment(date).format("dddd");
+    return `${weeklyDay.slice(0, 1).toLocaleUpperCase()}${weeklyDay.slice(1, weeklyDay.length)}`;
 };
 
 export { convertDate, getWeeklyDay };
