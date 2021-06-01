@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Container } from "./style.js";
 import Button from "@material-ui/core/Button";
 import InputMask from "react-input-mask";
-import {secondsToHoursAndMinutes, removeUnderline} from '../../helper/calculator';
+import { secondsToHoursAndMinutes, removeUnderline } from "../../helper/calculator";
 
 const MultiplyingFactor = () => {
     const [bancoDeHoras, setBancoDeHoras] = useState();
@@ -13,12 +13,12 @@ const MultiplyingFactor = () => {
 
     const hoursToSeconds = ([hour, minutes]) => parseInt(hour) * 3600 + parseInt(minutes) * 60;
 
-    const factorMinutes = seconds => parseInt(removeUnderline(fator)) * seconds;
+    const factorMinutes = (seconds) => removeUnderline(fator) * seconds;
 
     const handleClick = () => {
         if (!bancoDeHoras || !fator) return false;
 
-        const seconds = hoursToSeconds(removeUnderline(bancoDeHoras).split(':'));
+        const seconds = hoursToSeconds(removeUnderline(bancoDeHoras).split(":"));
         const hoursAndMinutes = secondsToHoursAndMinutes(factorMinutes(seconds));
         setResult(hoursAndMinutes);
     };
