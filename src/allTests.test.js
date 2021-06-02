@@ -1,4 +1,11 @@
-import { sum, decrease, removeUnderline, extractHoursFromSeconds, calcNightlyFactor, removeNightlyFactor } from "./helper/calculator";
+import {
+    sum,
+    decrease,
+    removeUnderline,
+    extractHoursFromSeconds,
+    calcNightlyFactor,
+    removeNightlyFactor
+} from "./helper/calculator";
 
 describe("Utils", () => {
     it("Sum", () => {
