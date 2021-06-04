@@ -19,7 +19,7 @@ function HoursCalculator() {
 
     const handleRemoveLastInput = () => {
         if (!inputs.length) return false;
-        setInputs([]);
+        setInputs([1, 1]);
     };
 
     const teste = () => {
@@ -60,6 +60,12 @@ function HoursCalculator() {
                     <Button onClick={() => handleOnclick("decrease")} variant="contained" color="primary">
                         Subtração
                     </Button>
+                </div>
+                <hr />
+                <h1>Resultado</h1>
+                <div id="div-results">
+                    <TextField id="filled-basic" inputProps={{ readOnly: true }} label="Horas" variant="outlined" defaultValue="2017-05-24" />
+                    <TextField id="filled-basic" inputProps={{ readOnly: true }} label="Minutos" variant="outlined" defaultValue="2017-05-24" />
                 </div>
             </Modal>
         </Container>

@@ -21,6 +21,13 @@ export const Modal = styled.div`
     margin-top: 20px;
     background: whitesmoke;
 
+    hr {
+        width: 80%;
+        color: #898989;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
     #div-addNewButtons {
         width: 60%;
         display: flex;
@@ -50,5 +57,16 @@ export const Modal = styled.div`
         align-items: center;
         justify-content: space-around;
         width: 70%;
+    }
+
+    #div-results {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 10px;
+        input {
+            background-color: ghostwhite;
+        }
     }
 `;
