@@ -5,15 +5,15 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { decrease, sum, reset, calcNightlyFactor, removeNightlyFactor } from "../../helper/calculator";
 
-
 //components
 import TimelineParser from "../../components/TimelineParser";
 import Nightly from "../../components/Nightly";
 import HourCalculator from "../../components/HourCalculator";
 
 //pages
-import HoursConverter from '../../pages/hoursConverter'
-import MultiplyingFactor from '../../pages/multiplyingFactor'
+import HoursConverter from "../../pages/hoursConverter";
+import MultiplyingFactor from "../../pages/multiplyingFactor";
+import HoursCalculator from "../../pages/hoursCalculator";
 
 const useStyles = makeStyles({
     root: {
@@ -60,10 +60,11 @@ const IndexPage = () => {
     };
 
     const tabChooser = {
-        0: <HourCalculator handleTime={setTime} timeState={time} doCalc={doCalc} result={result} setAutoSave={setAutoSave} />,
+        0: <HoursCalculator />,
+        // 0: <HourCalculator handleTime={setTime} timeState={time} doCalc={doCalc} result={result} setAutoSave={setAutoSave} />,
         1: <Nightly nightlyTime={nightlyTime} setTime={setNightlyTime} result={resultNightly} calc={calcNightly} remove={calcRemoveNightlyFactor} />,
-        2: <HoursConverter/>,
-        3: <MultiplyingFactor/>,
+        2: <HoursConverter />,
+        3: <MultiplyingFactor />,
         4: <TimelineParser />,
     };
 
