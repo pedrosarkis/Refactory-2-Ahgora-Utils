@@ -1,20 +1,14 @@
 import React, { useState, useRef } from "react";
-import {Container} from './style.js'
-import Button from "@material-ui/core/Button";
-import InputMask from 'react-input-mask';
-import {converterToCentesimal, converterToSexagesimal} from '../../helper/calculator';
+import { Container } from "./style.js";
+import InputMask from "react-input-mask";
+import { converterToCentesimal, converterToSexagesimal } from "../../helper/calculator";
 
 const HoursConverter = () => {
-    const [sexagesimal, setSexagesimal] = useState('00:00')
-    const [centesimal, setCentesimal] = useState('0.00')
+    const [sexagesimal, setSexagesimal] = useState("00:00");
+    const [centesimal, setCentesimal] = useState("0.00");
 
-    const sexagesimalRef = useRef()
-    const centesimalRef = useRef()
-
-    const handleConverter = () => {
-        setSexagesimal(converterToCentesimal(sexagesimalRef.current.value));
-        setCentesimal(converterToSexagesimal(centesimalRef.current.value));
-    }
+    const handleChangeSexagesimal = (e) => setSexagesimal(converterToCentesimal(e.target.value));
+    const handleChangeCentesimal = (e) => setCentesimal(converterToSexagesimal(e.target.value));
 
     return (
         <Container>
@@ -23,7 +17,7 @@ const HoursConverter = () => {
                 <div>
                     <div>
                         <h2>Valor em Sexagesimal </h2>
-                        <InputMask ref={sexagesimalRef} mask="99:99"></InputMask>
+                        <InputMask onChange={(e) => handleChangeSexagesimal(e)} mask="99:99"></InputMask>
                     </div>
                     <div>
                         <h3>{sexagesimal}</h3>
@@ -32,21 +26,16 @@ const HoursConverter = () => {
                 <div>
                     <div>
                         <h2>Valor em Cetesimal </h2>
-                        <InputMask ref={centesimalRef}  mask="99.99" ></InputMask>
+                        <InputMask onChange={(e) => handleChangeCentesimal(e)} mask="99.99"></InputMask>
                     </div>
                     <div>
                         <h3>{centesimal}</h3>
                     </div>
                 </div>
             </div>
-            <Button variant="contained" color="primary" style={{marginBottom: 50}} onClick={handleConverter}>Converter</Button>
             <p>*Converta horas de sexagesimal para centesimal e vice versa</p>
-
         </Container>
-
-    )
-}
+    );
+};
 
 export default HoursConverter;
-
-

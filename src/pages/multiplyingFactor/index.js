@@ -9,8 +9,6 @@ const MultiplyingFactor = () => {
     const [fator, setFator] = useState();
     const [result, setResult] = useState();
 
-    const hoursRef = useRef();
-
     const hoursToSeconds = ([hour, minutes]) => parseInt(hour) * 3600 + parseInt(minutes) * 60;
 
     const factorMinutes = (seconds) => removeUnderline(fator) * seconds;
@@ -29,7 +27,7 @@ const MultiplyingFactor = () => {
             <div>
                 <div>
                     <h3>Quantidade de Banco</h3>
-                    <InputMask onChange={(e) => setBancoDeHoras(e.target.value)} ref={hoursRef} mask="99:99"></InputMask>
+                    <InputMask onChange={(e) => setBancoDeHoras(e.target.value)} mask="99:99"></InputMask>
                 </div>
                 <div>
                     <h3>Fator Multiplicador </h3>
