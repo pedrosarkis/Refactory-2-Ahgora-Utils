@@ -60,12 +60,13 @@ const IndexPage = () => {
     };
 
     const tabChooser = {
-        0: <HoursCalculator />,
-        // 0: <HourCalculator handleTime={setTime} timeState={time} doCalc={doCalc} result={result} setAutoSave={setAutoSave} />,
+        
+        0: <HourCalculator handleTime={setTime} timeState={time} doCalc={doCalc} result={result} setAutoSave={setAutoSave} />,
         1: <Nightly nightlyTime={nightlyTime} setTime={setNightlyTime} result={resultNightly} calc={calcNightly} remove={calcRemoveNightlyFactor} />,
         2: <HoursConverter />,
         3: <MultiplyingFactor />,
         4: <TimelineParser />,
+        5: <HoursCalculator />,
     };
 
     const classes = useStyles();
@@ -81,6 +82,7 @@ const IndexPage = () => {
                     <Tab label="Conversor" />
                     <Tab label="Fator Multiplicador" />
                     <Tab label="Timeline Parser" />
+                    <Tab label="Calculadora [Beta]" />
                 </Tabs>
             </Paper>
             <div style={{ paddingTop: 49 }}>{tabChooser[value]}</div>

@@ -1,3 +1,24 @@
+const sumHoursAndMinutes = ({hours, minutes}) => {
+    const reducer = (acc, current) => acc + current;
+    const allHours = hourToSeconds(hours.reduce(reducer))
+    const allMinutes = minutesToSeconds(minutes.reduce(reducer))
+    
+    return {
+        hours: extractHoursFromSeconds(allHours + allMinutes),
+        minutes: extractMinutesFromSeconds(allHours + allMinutes),
+    };
+};
+const decreaseHoursAndMinutes = ({hours, minutes}) => {
+    const reducer = (acc, current) => acc - current;
+    const allHours = hourToSeconds(hours.reduce(reducer))
+    const allMinutes = minutesToSeconds(minutes.reduce(reducer))
+
+    return {
+        hours: extractHoursFromSeconds(allHours + allMinutes),
+        minutes: extractMinutesFromSeconds(allHours + allMinutes),
+    };
+};
+
 const sum = ({ hour1 = 0, hour2 = 0, minute1 = 0, minute2 = 0 }) => {
     const sumHours = hourToSeconds(hour1) + hourToSeconds(hour2);
     const sumMinutes = minutesToSeconds(minute1) + minutesToSeconds(minute2);
@@ -43,9 +64,8 @@ const removeNightlyFactor = ({ hours, minutes }) => {
     if (!minutesInSeconds && !totalSeconds) return {};
 
     const resultWithoutFactor = Math.ceil(totalSeconds / getNightlyFactor());
-    console.log('total', totalSeconds);
-    console.log('result', resultWithoutFactor);
-
+    console.log("total", totalSeconds);
+    console.log("result", resultWithoutFactor);
 
     return {
         hours: extractHoursFromSeconds(resultWithoutFactor),
@@ -71,11 +91,11 @@ const secondsToHoursAndMinutes = (totalSeconds) => {
     return `${extractHoursFromSeconds(totalSeconds).toString().padStart(2, 0)}:${extractMinutesFromSeconds(totalSeconds).toString().padStart(2, 0)}`;
 };
 
-const hourToSeconds = hour => hour * 3600;
+const hourToSeconds = (hour) => hour * 3600;
 
-const minutesToSeconds = minutes => minutes * 60;
+const minutesToSeconds = (minutes) => minutes * 60;
 
-const removeUnderline = string => string.replaceAll("_", '0');
+const removeUnderline = (string) => string.replaceAll("_", "0");
 
 const extractHoursFromSeconds = (seconds) => Math.floor(seconds / 3600);
 
@@ -83,4 +103,4 @@ const extractMinutesFromSeconds = (seconds) => Math.floor((seconds % 3600) / 60)
 
 const getNightlyFactor = () => 8 / 7;
 
-export { sum, decrease, reset, extractHoursFromSeconds, extractMinutesFromSeconds, calcNightlyFactor, removeNightlyFactor, converterToCentesimal, converterToSexagesimal, secondsToHoursAndMinutes, removeUnderline };
+export { sum, decrease, reset, extractHoursFromSeconds, extractMinutesFromSeconds, calcNightlyFactor, removeNightlyFactor, converterToCentesimal, converterToSexagesimal, secondsToHoursAndMinutes, removeUnderline, sumHoursAndMinutes, decreaseHoursAndMinutes };

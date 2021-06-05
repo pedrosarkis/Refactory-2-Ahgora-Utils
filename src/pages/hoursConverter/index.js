@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
-import { Container } from "./style.js";
+import React, { useState } from "react";
 import InputMask from "react-input-mask";
 import { converterToCentesimal, converterToSexagesimal } from "../../helper/calculator";
+import { Container } from "./style.js";
 
 const HoursConverter = () => {
     const [sexagesimal, setSexagesimal] = useState("00:00");

@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
-import { Container } from "./style.js";
 import Button from "@material-ui/core/Button";
+import React, { useState } from "react";
 import InputMask from "react-input-mask";
-import { secondsToHoursAndMinutes, removeUnderline } from "../../helper/calculator";
+import { removeUnderline, secondsToHoursAndMinutes } from "../../helper/calculator";
+import { Container } from "./style.js";
 
 const MultiplyingFactor = () => {
     const [bancoDeHoras, setBancoDeHoras] = useState();
