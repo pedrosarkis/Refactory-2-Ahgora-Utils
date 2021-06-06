@@ -1,20 +1,9 @@
-const sumHoursAndMinutes = ({hours, minutes}) => {
-    const allHoursAndMinutes = [...hours.map(hour => hour * 3600), ...minutes.map(minute => minute * 60)].reduce((acc, curr) => acc + curr, 0);
+const mountResult = seconds => ({hours: extractHoursFromSeconds(seconds), minutes: extractMinutesFromSeconds(seconds)});
 
-    return {
-        hours: extractHoursFromSeconds(allHoursAndMinutes),
-        minutes: extractMinutesFromSeconds(allHoursAndMinutes),
-    };
-};
-const decreaseHoursAndMinutes = ({hours, minutes}) => {
-    const hoursAndMinutes = hours.map((hour, index) =>  hour * 3600 + minutes[index] * 60).reduce((acc, curr) => acc - curr);
+const sumHoursAndMinutes = ({hours, minutes}) => mountResult([...hours.map(hour => hour * 3600), ...minutes.map(minute => minute * 60)].reduce((acc, curr) => acc + curr, 0));
+
+const decreaseHoursAndMinutes = ({hours, minutes}) => mountResult(hours.map((hour, index) =>  hour * 3600 + minutes[index] * 60).reduce((acc, curr) => acc - curr));
     //Aqui tem que ver bem , pois existem vários comportamentos possíveis ( e não errados ) para uma subtração em massa.
-
-    return {
-        hours: extractHoursFromSeconds(hoursAndMinutes),
-        minutes: extractMinutesFromSeconds(hoursAndMinutes),
-    };
-};
 
 const sum = ({ hour1 = 0, hour2 = 0, minute1 = 0, minute2 = 0 }) => {
     const sumHours = hourToSeconds(hour1) + hourToSeconds(hour2);
@@ -46,12 +35,7 @@ const calcNightlyFactor = ({ hours, minutes }) => {
     const totalSeconds = hours ? hourToSeconds(hours) + minutesInSeconds : minutesInSeconds;
     if (!minutesInSeconds && !totalSeconds) return {};
 
-    const resultsWithFactor = totalSeconds * getNightlyFactor();
-
-    return {
-        hours: extractHoursFromSeconds(resultsWithFactor),
-        minutes: extractMinutesFromSeconds(resultsWithFactor),
-    };
+    return mountResult(totalSeconds * getNightlyFactor());
 };
 
 const removeNightlyFactor = ({ hours, minutes }) => {
@@ -60,12 +44,7 @@ const removeNightlyFactor = ({ hours, minutes }) => {
 
     if (!minutesInSeconds && !totalSeconds) return {};
 
-    const resultWithoutFactor = Math.ceil(totalSeconds / getNightlyFactor());
-
-    return {
-        hours: extractHoursFromSeconds(resultWithoutFactor),
-        minutes: extractMinutesFromSeconds(resultWithoutFactor),
-    };
+    return mountResult(Math.ceil(totalSeconds / getNightlyFactor()));
 };
 
 const converterToCentesimal = time => {
