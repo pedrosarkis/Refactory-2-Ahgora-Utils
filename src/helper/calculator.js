@@ -1,6 +1,6 @@
 const sumHoursAndMinutes = ({hours, minutes}) => {
-    const allHoursAndMinutes = [...hours, ...minutes].reduce((acc, curr) => acc + curr, 0);
-    
+    const allHoursAndMinutes = [...hours.map(hour => hour * 3600), ...minutes.map(minute => minute * 60)].reduce((acc, curr) => acc + curr, 0);
+    console.log(allHoursAndMinutes);
     return {
         hours: extractHoursFromSeconds(allHoursAndMinutes),
         minutes: extractMinutesFromSeconds(allHoursAndMinutes),

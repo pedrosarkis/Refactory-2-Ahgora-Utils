@@ -6,6 +6,7 @@ import { Container, Modal } from "./styles";
 function HoursCalculator() {
     const [inputs, setInputs] = useState([1, 1]);
     const [obj, setObj] = useState({hours: '', minutes: ''})
+    console.log(obj);
 
     let hoursInputRef = useRef(new Array()); 
     let minutesInputRef = useRef(new Array());
