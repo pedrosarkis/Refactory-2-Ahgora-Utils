@@ -4,27 +4,25 @@ import { decreaseHoursAndMinutes, sumHoursAndMinutes } from '../../helper/calcul
 import { Container, Modal } from "./styles";
 
 function HoursCalculator() {
-    const [inputs, setInputs] = useState([1, 1]);
-    const [obj, setObj] = useState({hours: '', minutes: ''})
-    console.log(obj);
+    const [numberOfInputs, setNumberOfInputs] = useState(2);
+    const [result, setResult] = useState({hours: '', minutes: ''})
 
     let hoursInputRef = useRef(new Array()); 
     let minutesInputRef = useRef(new Array());
 
     const resetFields = () => {
-        hoursInputRef.current.forEach(elem => elem.value = '')
-        minutesInputRef.current.forEach(elem => elem.value = '')
-        setObj({hours: '', minutes: ''})
+        [...hoursInputRef.current, ...minutesInputRef.current].forEach(elem => elem.value = '');
+        setResult({hours: '', minutes: ''})
     };
 
-    const handleAddNewInputs = () => inputs.length >= 31 ? false : setInputs([...inputs, 1]);
+    const handleAddNewInputs = () => numberOfInputs >= 31 ? false : setNumberOfInputs(numberOfInputs + 1);
 
-    const handleRemoveLastInput = () => !inputs.length ? false : setInputs([1, 1]);
+    const handleRemoveLastInput = () => !numberOfInputs ? false : setNumberOfInputs(2);
 
     const doCalc = (operation) => {
-        const hours = hoursInputRef.current.map(elem => !elem.value ? 0 : parseInt(elem.value))
-        const minutes = minutesInputRef.current.map(elem => !elem.value ? 0 : parseInt(elem.value))
-        setObj(operation === "sum" ? sumHoursAndMinutes({hours, minutes}) : decreaseHoursAndMinutes({hours, minutes}));
+        const hours = hoursInputRef.current.map(({ value }) => !value ? 0 : parseInt(value))
+        const minutes = minutesInputRef.current.map(({ value }) => !value ? 0 : parseInt(value))
+        setResult(operation === "sum" ? sumHoursAndMinutes({hours, minutes}) : decreaseHoursAndMinutes({hours, minutes}));
     };
 
     return (
@@ -36,7 +34,7 @@ function HoursCalculator() {
                     <Button style={{ backgroundColor: "tomato", color: "white" }} onClick={handleRemoveLastInput} variant="contained">Limpar campos</Button>
                 </div>
                 <div id="div-all-input-hours">
-                    {inputs.map((elem, index) => {
+                    {new Array(numberOfInputs).fill(0).map((elem, index) => {
                         return (
                             <div className="div-input-hours" key={index}>
                                 <TextField inputRef={(element) => (hoursInputRef.current[index] = element)} className="outlined-basic" label="Horas" variant="outlined" />
@@ -52,8 +50,8 @@ function HoursCalculator() {
                 <hr />
                 <h1>Resultado</h1>
                 <div id="div-results">
-                    <TextField id="filled-basic"  inputProps={{ readOnly: true }}  variant="outlined" label='Resultado Horas' value={obj.hours} />
-                    <TextField id="filled-basic" inputProps={{ readOnly: true }}  variant="outlined" label='Resultado Minutos' value={obj.minutes}  />
+                    <TextField id="filled-basic"  inputProps={{ readOnly: true }}  variant="outlined" label='Resultado Horas' value={result.hours} />
+                    <TextField id="filled-basic" inputProps={{ readOnly: true }}  variant="outlined" label='Resultado Minutos' value={result.minutes}  />
                 </div>
             </Modal>
         </Container>
