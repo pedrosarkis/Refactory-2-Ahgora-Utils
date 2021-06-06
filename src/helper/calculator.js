@@ -1,11 +1,9 @@
 const sumHoursAndMinutes = ({hours, minutes}) => {
-    const reducer = (acc, current) => acc + current;
-    const allHours = hourToSeconds(hours.reduce(reducer))
-    const allMinutes = minutesToSeconds(minutes.reduce(reducer))
+    const allHoursAndMinutes = [...hours, ...minutes].reduce((acc, curr) => acc + curr, 0);
     
     return {
-        hours: extractHoursFromSeconds(allHours + allMinutes),
-        minutes: extractMinutesFromSeconds(allHours + allMinutes),
+        hours: extractHoursFromSeconds(allHoursAndMinutes),
+        minutes: extractMinutesFromSeconds(allHoursAndMinutes),
     };
 };
 const decreaseHoursAndMinutes = ({hours, minutes}) => {
