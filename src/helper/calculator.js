@@ -7,11 +7,11 @@ const sumHoursAndMinutes = ({hours, minutes}) => {
     };
 };
 const decreaseHoursAndMinutes = ({hours, minutes}) => {
-    const allHoursAndMinutes = [...hours.map(hour => hour * 3600), ...minutes.map(minute => minute * 60)].reduce((acc, curr) => acc - curr, 0);
+    const hoursAndMinutes = hours.map((hour, index) =>  hour * 3600 + minutes[index] * 60).reduce((acc, curr) => acc - curr);
 
     return {
-        hours: extractHoursFromSeconds(allHoursAndMinutes),
-        minutes: extractMinutesFromSeconds(allHoursAndMinutes),
+        hours: extractHoursFromSeconds(hoursAndMinutes),
+        minutes: extractMinutesFromSeconds(hoursAndMinutes),
     };
 };
 
