@@ -3,22 +3,19 @@ import React from "react";
 import { Container, ContainerHour, InputHour, InputHourResult, Modal } from "./hourCalculatorStyles";
 
 const Calculator = ({ handleTime, timeState, setOperation, doCalc, result, setAutoSave }) => {
-    const handleOnChange = (e) => {
-        const { name, value } = e.target;
+    const handleOnChange = ({target: {name, value}}) => {
         handleTime((timeState) => ({
             ...timeState,
             [name]: value,
         }));
     };
 
-    const handleOnChangeAutoSave = (e) => {
-        const { checked } = e.target;
+    const handleOnChangeAutoSave = ({target: {checked}}) => {
         setAutoSave(checked);
     };
 
-    const handleOnclick = (event) => {
-        doCalc(event);
-    };
+    const handleOnclick = event => doCalc(event);
+
     return (
         <Container>
             <h1>Calculadora de horas</h1>

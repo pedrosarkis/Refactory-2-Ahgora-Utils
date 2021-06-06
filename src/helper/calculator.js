@@ -7,6 +7,7 @@ const sumHoursAndMinutes = ({hours, minutes}) => {
     };
 };
 const decreaseHoursAndMinutes = ({hours, minutes}) => {
+    debugger;
     const hoursAndMinutes = hours.map((hour, index) =>  hour * 3600 + minutes[index] * 60).reduce((acc, curr) => acc - curr);
 
     return {
@@ -67,13 +68,13 @@ const removeNightlyFactor = ({ hours, minutes }) => {
     };
 };
 
-const converterToCentesimal = (time) => {
+const converterToCentesimal = time => {
     if (!time) return false;
     const [hours, minutes] = removeUnderline(time).split(":");
     return `${hours}.${Math.floor(minutes * 1.67)}`;
 };
 
-const converterToSexagesimal = (time) => {
+const converterToSexagesimal = time => {
     if (!time) return false;
     let [hours, minutes] = removeUnderline(time).split(".");
     return `${hours}:${Math.round(minutes / 1.67)
@@ -85,15 +86,15 @@ const secondsToHoursAndMinutes = (totalSeconds) => {
     return `${extractHoursFromSeconds(totalSeconds).toString().padStart(2, 0)}:${extractMinutesFromSeconds(totalSeconds).toString().padStart(2, 0)}`;
 };
 
-const hourToSeconds = (hour) => hour * 3600;
+const hourToSeconds = hour => hour * 3600;
 
-const minutesToSeconds = (minutes) => minutes * 60;
+const minutesToSeconds = minutes => minutes * 60;
 
-const removeUnderline = (string) => string.replaceAll("_", "0");
+const removeUnderline = string => string.replaceAll("_", "0");
 
-const extractHoursFromSeconds = (seconds) => Math.floor(seconds / 3600);
+const extractHoursFromSeconds = seconds => seconds > 0 ? Math.floor(seconds / 3600) : Math.floor(Math.abs(seconds) / 3600) * -1; 
 
-const extractMinutesFromSeconds = (seconds) => Math.floor((seconds % 3600) / 60);
+const extractMinutesFromSeconds = seconds => seconds > 0 ?  Math.floor((seconds % 3600) / 60) :  Math.floor((Math.abs(seconds) % 3600) / 60) * -1;
 
 const getNightlyFactor = () => 8 / 7;
 

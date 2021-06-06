@@ -60,7 +60,6 @@ const IndexPage = () => {
     };
 
     const tabChooser = {
-        
         0: <HourCalculator handleTime={setTime} timeState={time} doCalc={doCalc} result={result} setAutoSave={setAutoSave} />,
         1: <Nightly nightlyTime={nightlyTime} setTime={setNightlyTime} result={resultNightly} calc={calcNightly} remove={calcRemoveNightlyFactor} />,
         2: <HoursConverter />,
