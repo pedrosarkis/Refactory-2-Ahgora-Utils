@@ -1,19 +1,17 @@
 const sumHoursAndMinutes = ({hours, minutes}) => {
     const allHoursAndMinutes = [...hours.map(hour => hour * 3600), ...minutes.map(minute => minute * 60)].reduce((acc, curr) => acc + curr, 0);
-    console.log(allHoursAndMinutes);
+
     return {
         hours: extractHoursFromSeconds(allHoursAndMinutes),
         minutes: extractMinutesFromSeconds(allHoursAndMinutes),
     };
 };
 const decreaseHoursAndMinutes = ({hours, minutes}) => {
-    const reducer = (acc, current) => acc - current;
-    const allHours = hourToSeconds(hours.reduce(reducer))
-    const allMinutes = minutesToSeconds(minutes.reduce(reducer))
+    const allHoursAndMinutes = [...hours.map(hour => hour * 3600), ...minutes.map(minute => minute * 60)].reduce((acc, curr) => acc - curr, 0);
 
     return {
-        hours: extractHoursFromSeconds(allHours + allMinutes),
-        minutes: extractMinutesFromSeconds(allHours + allMinutes),
+        hours: extractHoursFromSeconds(allHoursAndMinutes),
+        minutes: extractMinutesFromSeconds(allHoursAndMinutes),
     };
 };
 
