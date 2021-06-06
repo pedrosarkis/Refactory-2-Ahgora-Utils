@@ -15,9 +15,9 @@ function HoursCalculator() {
         setResult({hours: '', minutes: ''})
     };
 
-    const handleAddNewInputs = () => numberOfInputs >= 31 ? false : setNumberOfInputs(numberOfInputs + 1);
+    const handleAddNewInputs = () => numberOfInputs === 31 || setNumberOfInputs(numberOfInputs + 1);
 
-    const handleRemoveLastInput = () => !numberOfInputs ? false : setNumberOfInputs(2);
+    const handleRemoveLastInput = () => setNumberOfInputs(2);
 
     const doCalc = (operation) => {
         const hours = hoursInputRef.current.map(({ value }) => !value ? 0 : parseInt(value))

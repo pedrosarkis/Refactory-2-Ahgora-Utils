@@ -60,8 +60,6 @@ const removeNightlyFactor = ({ hours, minutes }) => {
     if (!minutesInSeconds && !totalSeconds) return {};
 
     const resultWithoutFactor = Math.ceil(totalSeconds / getNightlyFactor());
-    console.log("total", totalSeconds);
-    console.log("result", resultWithoutFactor);
 
     return {
         hours: extractHoursFromSeconds(resultWithoutFactor),
