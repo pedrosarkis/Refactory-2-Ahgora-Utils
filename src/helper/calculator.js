@@ -7,8 +7,8 @@ const sumHoursAndMinutes = ({hours, minutes}) => {
     };
 };
 const decreaseHoursAndMinutes = ({hours, minutes}) => {
-    debugger;
     const hoursAndMinutes = hours.map((hour, index) =>  hour * 3600 + minutes[index] * 60).reduce((acc, curr) => acc - curr);
+    //Aqui tem que ver bem , pois existem vários comportamentos possíveis ( e não errados ) para uma subtração em massa.
 
     return {
         hours: extractHoursFromSeconds(hoursAndMinutes),
