@@ -26,18 +26,15 @@ const reset = (setTime) => {
 const calcNightlyFactor = ({ hours, minutes }) => {
     const minutesInSeconds = minutes ? minutesToSeconds(minutes) : 0;
     const totalSeconds = hours ? hourToSeconds(hours) + minutesInSeconds : minutesInSeconds;
-    if (!minutesInSeconds && !totalSeconds) return {};
-
-    return mountResult(totalSeconds * getNightlyFactor());
+    
+    return !minutesInSeconds && !totalSeconds ? {} : mountResult(totalSeconds * getNightlyFactor());
 };
 
 const removeNightlyFactor = ({ hours, minutes }) => {
     const minutesInSeconds = minutes ? minutesToSeconds(minutes) : 0;
     const totalSeconds = hours ? hourToSeconds(hours) + minutesInSeconds : minutesInSeconds;
 
-    if (!minutesInSeconds && !totalSeconds) return {};
-
-    return mountResult(Math.ceil(totalSeconds / getNightlyFactor()));
+    return !minutesInSeconds && !totalSeconds ? {} : mountResult(Math.ceil(totalSeconds / getNightlyFactor()));
 };
 
 const converterToCentesimal = time => {
