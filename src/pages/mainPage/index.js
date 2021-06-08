@@ -26,27 +26,6 @@ const IndexPage = () => {
     const [nightlyTime, setNightlyTime] = useState({});
     const [resultNightly, setResultNightly] = useState({});
 
-    // const chooseMethod = (operation) =>
-    //     ({
-    //         [operation === "sum"]: sum(time),
-    //         [operation === "decrease"]: decrease(time),
-    //     }[true] || reset(setTime));
-
-    // const doCalc = (operation) => {
-    //     const resultOperation = chooseMethod(operation)
-        
-    //     if (resultOperation && autoSave) {
-    //         setTime((time) => ({
-    //             ...time,
-    //             hour1: resultOperation.hours,
-    //             minute1: resultOperation.minutes,
-    //             hour2: "",
-    //             minute2: "",
-    //         }));
-    //     }
-    //     setResult(resultOperation);
-    // };
-
     const calcNightly = () => {
         const nightlyResult = calcNightlyFactor(nightlyTime);
         setResultNightly(nightlyResult);

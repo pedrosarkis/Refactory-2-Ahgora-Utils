@@ -36,11 +36,11 @@ describe("Utils", () => {
         expect(extractHoursFromSeconds(3600)).toStrictEqual(1);
     });
 
-    // it("calcNightlyFactor", () => {
-    //     expect(calcNightlyFactor({ hours: 1, minutes: 0 })).toStrictEqual({ hours: 1, minutes: 8 });
-    // });
+    it("calcNightlyFactor", () => {
+        expect(calcNightlyFactor({ hours: 1, minutes: 0 })).toStrictEqual({ hours: 1, minutes: 8 });
+    });
 
-    // it("removeNightlyFactor", () => {
-    //     expect(removeNightlyFactor({ hours: 1, minutes: 8 })).toStrictEqual({ hours: 1, minutes: 0 });
-    // });
+    it("removeNightlyFactor", () => {
+        expect(removeNightlyFactor({ hours: 1, minutes: 8 })).toStrictEqual({ hours: 1, minutes: 0 });
+    });
 });

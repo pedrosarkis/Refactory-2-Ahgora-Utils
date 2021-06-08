@@ -65,11 +65,19 @@ const PeriodWrapper = styled.div`
         flex-direction: column;
         align-items: center;
         margin-top: 10px;
-
         label {
             margin-top: 20px;
             color: black;
         }
+         p{
+            text-align: center;
+         }
+    }
+    #div-button-leaves {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 `;
 
@@ -110,8 +118,8 @@ const DailyTimeline = ({ timeline }) => {
                     <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
                         <div style={modalStyle} className={classes.paper}>
                             <BlockLabel>Motivo Afastamento: {`${timeline.options.leave.motivo}`}</BlockLabel>
-                            <BlockLabel>Tratamento: {`${timeline.options.leave.tratamento}`}</BlockLabel>
-                            <BlockLabel>Tratamento Noturno: {`${timeline.options.leave.tratamento_noturno}`}</BlockLabel>
+                            <BlockLabel>Tratamento: {`${timeline.options.leave.tratamento || 'Sem Tratamento'}`}</BlockLabel>
+                            <BlockLabel>Tratamento Noturno: {`${timeline.options.leave.tratamento_noturno  || 'Sem Tratamento'}`}</BlockLabel>
                             <BlockLabel>Não abona: {`${timeline.options.leave.nao_abonar_falta}`}</BlockLabel>
                             <BlockLabel>Abona apenas ausências: {`${timeline.options.leave.apenas_abonar_ausencia}`}</BlockLabel>
                             <BlockLabel>Força o tratamento da jornada/escala: {`${timeline.options.leave.force_shift_limits}`}</BlockLabel>
@@ -125,9 +133,9 @@ const DailyTimeline = ({ timeline }) => {
                             )}
                         </div>
                     </Modal>
-                    <Button style={{marginTop: 20}} variant="outlined" color="primary" onClick={handleOpen}>
-                        Ver dados Afastamento
-                    </Button>
+                    <div id="div-button-leaves">
+                        <Button id='button-afastamento' style={{marginTop: 20}} variant="outlined" color="primary" onClick={handleOpen}>Ver dados Afastamento</Button>
+                    </div>
                 </>
             )}
         </PeriodWrapper>
