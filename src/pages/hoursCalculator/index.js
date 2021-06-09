@@ -11,8 +11,7 @@ function HoursCalculator() {
     const minutesInputRef = useRef(new Array());
 
     const resetFields = () => {
-        debugger;
-        [...hoursInputRef.current, ...minutesInputRef.current].forEach(elem => elem.value = '');
+        [...hoursInputRef.current, ...minutesInputRef.current].filter(value => value).forEach(elem => elem.value = '');
         setResult({hours: '', minutes: ''})
     };
 
