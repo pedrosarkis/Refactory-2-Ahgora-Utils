@@ -20,9 +20,8 @@ function HoursCalculator() {
     const handleRemoveLastInput = () => setNumberOfInputs(2);
 
     const doCalc = (operation) => {
-        debugger;
-        const hours = hoursInputRef.current.flatMap(elem => elem?.value ? parseInt(elem.value) : []);
-        const minutes = minutesInputRef.current.flatMap(elem => elem?.value ? parseInt(elem.value) : []);
+        const hours = hoursInputRef.current.flatMap(elem => elem?.value ? parseInt(elem.value) : [0]);
+        const minutes = minutesInputRef.current.flatMap(elem => elem?.value ? parseInt(elem.value) : [0]);
         setResult(operation === "sum" ? sumHoursAndMinutes({hours, minutes}) : decreaseHoursAndMinutes({hours, minutes}));
     };
 
