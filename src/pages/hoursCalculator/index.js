@@ -7,10 +7,11 @@ function HoursCalculator() {
     const [numberOfInputs, setNumberOfInputs] = useState(2);
     const [result, setResult] = useState({hours: '', minutes: ''})
 
-    const hoursInputRef = useRef(new Array()); 
+    const hoursInputRef = useRef(new Array());
     const minutesInputRef = useRef(new Array());
 
     const resetFields = () => {
+        debugger;
         [...hoursInputRef.current, ...minutesInputRef.current].forEach(elem => elem.value = '');
         setResult({hours: '', minutes: ''})
     };
@@ -20,8 +21,9 @@ function HoursCalculator() {
     const handleRemoveLastInput = () => setNumberOfInputs(2);
 
     const doCalc = (operation) => {
-        const hours = hoursInputRef.current.map(({ value }) => !value ? 0 : parseInt(value))
-        const minutes = minutesInputRef.current.map(({ value }) => !value ? 0 : parseInt(value))
+        debugger;
+        const hours = hoursInputRef.current.flatMap(elem => elem?.value ? parseInt(elem.value) : []);
+        const minutes = minutesInputRef.current.flatMap(elem => elem?.value ? parseInt(elem.value) : []);
         setResult(operation === "sum" ? sumHoursAndMinutes({hours, minutes}) : decreaseHoursAndMinutes({hours, minutes}));
     };
 
